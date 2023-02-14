@@ -19,7 +19,10 @@ class Inputter {
  public:
   Inputter(Buffer *buffer, mutex *syncronizer)
       : buffer_(buffer), syncronizer_(syncronizer) {}
-  ~Inputter() { buffer_ = nullptr; }
+  ~Inputter() {
+    buffer_ = nullptr;
+    syncronizer_ = nullptr;
+  }
   void Run() {
     while (true) {
       cin >> input_;

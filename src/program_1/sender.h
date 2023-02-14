@@ -19,14 +19,18 @@ class Sender {
  public:
   Sender(Buffer *buffer, mutex *syncronizer)
       : buffer_(buffer), syncronizer_(syncronizer) {}
-  ~Sender() {}
+
+  ~Sender() {
+    buffer_ = nullptr;
+    syncronizer_ = nullptr;
+  }
 
   void Run() {
     while (true) {
       (*syncronizer_).lock();
       string temp = buffer_->GetBuffer();
       buffer_->Clear();
-      cout << " Got data: " << temp << "\n";
+      cout << "Got data: " << temp << "\n";
       int sum = CalculateDigitsSum(temp);
       dispatch_queue_.push(to_string(sum));
       TrySendData();

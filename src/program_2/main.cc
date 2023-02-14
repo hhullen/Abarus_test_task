@@ -1,7 +1,7 @@
-#include "app1.h"
+#include "app2.h"
 
 int main() {
-  App1 app;
+  App2 app;
   app.Execute();
   return 0;
 }

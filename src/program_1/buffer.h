@@ -1,7 +1,6 @@
 #ifndef SRC_PROGRAM_1_BUFFER_H_
 #define SRC_PROGRAM_1_BUFFER_H_
 
-#include <iostream>
 #include <string>
 
 using std::string;
@@ -12,9 +11,7 @@ class Buffer {
   ~Buffer() {}
 
   void SetBuffer(string &value) { buffer_ = value; }
-
   string GetBuffer() { return buffer_; }
-
   void Clear() { buffer_.clear(); }
 
  private:

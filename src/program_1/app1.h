@@ -27,6 +27,9 @@ class App1 {
     if (buffer_) {
       delete buffer_;
     }
+    if (sender_) {
+      delete sender_;
+    }
   }
 
   void Execute() {
@@ -34,6 +37,8 @@ class App1 {
     thread_2_ = new thread(&Sender::Run, sender_);
     thread_2_->join();
     thread_1_->join();
+    delete thread_1_;
+    delete thread_2_;
   }
 
  private:
