@@ -13,7 +13,7 @@ class Connector {
  public:
   Connector() {
     address_.sin_family = AF_INET;
-    address_.sin_port = htons(kPort);
+    address_.sin_port = htons(kPort_);
   }
 
   ~Connector() { Close(); }
@@ -33,7 +33,7 @@ class Connector {
   void Close() { close(socket_); }
 
  private:
-  const int kPort = 4221;
+  const int kPort_ = 4221;
   struct sockaddr_in address_;
   int socket_ = 0;
   int client_ = 0;
